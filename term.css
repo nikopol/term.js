@@ -1,0 +1,167 @@
+/*
+TERM.JS
+default css
+niko
+*/
+
+div.term {
+  position: fixed;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  border: 1px solid #fff;
+  font: normal 13px mono;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  overflow: auto;
+}
+
+div.term pre::selection,
+div.term span::selection {
+  color: #333;
+  background: #eee; 
+}
+
+div.term::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+div.term::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+div.term::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+div.term:focus {
+  outline: none;
+}
+
+div.term pre {
+  margin: 0;
+  font: inherit;
+  word-wrap: break-word;
+}
+
+div.term a {
+  color: inherit;
+}
+
+div.term input[type=file] {
+  position: fixed;
+  top: -100px;
+}
+
+div.term table {
+  border-collapse: collapse;
+  color: inherit;
+  font: inherit;
+  border: none;
+}
+
+div.term table td {
+  padding: 0 5px 0 0;
+  vertical-align: top;
+} 
+
+div.term span.cmd {
+  word-break: break-all;
+  color: #ddd;
+}
+
+div.term span.select {
+  background-color: #666;
+}
+
+div.term .black { color: #000; }
+div.term .white { color: #fff; }
+div.term .yellow { color: #fcff71; }
+div.term .grey { color: #999; } 
+div.term .red { color: #E08C8C; }
+div.term .cyan { color: #53d4cd; }
+div.term .blue { color: #5386d4; }   
+div.term .green { color: #92EB8A; }
+div.term .magenta { color: #d453c8; }
+
+div.term .bg-black { background-color: #000; }
+div.term .bg-white { background-color: #fff; }
+div.term .bg-yellow { background-color: #fcff71; }
+div.term .bg-grey { background-color: #999; } 
+div.term .bg-red { background-color: #E08C8C; }
+div.term .bg-cyan { background-color: #53d4cd; }
+div.term .bg-blue { background-color: #5386d4; }   
+div.term .bg-green { background-color: #92EB8A; }
+div.term .bg-magenta { background-color: #d453c8; }
+
+div.term .error { color: #E08C8C; }
+div.term .bold { font-weight: bold; }
+div.term .center { text-align: center; }
+div.term .right { text-align: right; }
+
+div.term .key { color: #aaa; }
+div.term .value { color: #fff; }
+
+div.term a.twittos,
+div.term a.email { color: #fcff71; }
+
+div.term .one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+div.term span.cursor {
+  border: 1px solid #ccc;
+  background-color: transparent;
+}
+
+div.term:focus span.cursor {
+  border: none;
+  display: inline;
+  background-color: #fff;
+  -webkit-animation: blink 1s step-end infinite;
+  -moz-animation: blink 1s step-end infinite;
+  -ms-animation: blink 1s step-end infinite;
+  -o-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+div.term:focus.run span.cursor {
+  border: 1px solid #fff;
+  background-color: transparent;
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  -o-animation: none;
+  animation: none;
+}
+
+@keyframes blink {
+  from, to { background-color: #fff; }
+  50% { background-color: transparent; }
+}
+
+@-moz-keyframes blink {
+  from, to { background-color: #fff; }
+  50% { background-color: transparent; }
+}
+
+@-webkit-keyframes blink {
+  from, to { background-color: #fff; }
+  50% { background-color: transparent; }
+}
+
+@-ms-keyframes blink {
+  from, to { background-color: #fff; }
+  50% { background-color: transparent; }
+}
+
+@-o-keyframes blink" {
+  from, to { background-color: #fff; }
+  50% { background-color: transparent; }
+}

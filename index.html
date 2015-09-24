@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="term.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="term.js"></script>
+  <script>
+    $(function(){
+      term.init({
+        cfg: {
+          parent: document.body
+        },
+        vars: {
+          hello: [
+            '<cyan>Term.js v$VERSION',
+            '<grey>try "hello" to start'
+          ],
+          prompt: '<green>$TIME</green> <grey>▶</grey> '
+        },
+        commands: {
+          hello: {
+            bin: function(){
+              var p=$.Deferred();
+              term.ask('what\'s your name','Joe',function(n){
+                if(n) p.resolve(['hello <yellow>'+n+'</yellow> !','try "help" if you\'re lost']);
+                else p.reject('rude');
+              });
+              return p;
+            }
+          },
+        }
+      }).open();
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
