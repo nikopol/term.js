@@ -2,6 +2,5 @@ TERM.JS
 -------
 
 customizable javascript terminal for command line lovers
-https://github.com/nikopol/term.js
 
-requires jquery
+https://nikopol.github.com/term.js/
