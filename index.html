@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>term.js</title>
+  <link rel="stylesheet" href='term.css'>
+  <style>
+    div#term1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 50%;
+    }
+    div#term2 {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="term.js"></script>
+  <script src="mods/dumb.js"></script>
+  <script src="mods/repl/javascript.js"></script>
+  <script>
+    $(function(){
+      var 
+        t1 = term({parent:'#term1', mod:'javascript', vars:{ hello:'<yellow>TERM 1' }}).open(),
+        t2 = term({parent:'#term2', mod:'dumb', vars:{ hello:'<yellow>TERM 2' }}).open()
+      ;
+    });
+  </script>
+</head>
+<body>
+  <div id="term1"></div>
+  <div id="term2"></div>
+</body>
+</html>

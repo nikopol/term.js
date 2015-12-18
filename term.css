@@ -5,23 +5,19 @@ niko
 */
 
 div.term {
-  position: fixed;
-  top: 20px;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  border: 1px solid #fff;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
   font: normal 13px mono;
   background-color: #000;
   color: #fff;
   padding: 5px;
   overflow: auto;
+  z-index: 999999;
 }
 
-div.term pre::selection,
-div.term span::selection {
+div.term ::selection {
   color: #333;
-  background: #eee; 
+  background-color: #eee;
 }
 
 div.term::-webkit-scrollbar {
@@ -41,12 +37,6 @@ div.term:focus {
   outline: none;
 }
 
-div.term pre {
-  margin: 0;
-  font: inherit;
-  word-wrap: break-word;
-}
-
 div.term a {
   color: inherit;
 }
@@ -61,16 +51,19 @@ div.term table {
   color: inherit;
   font: inherit;
   border: none;
+  width: auto;
+  max-width: 100%;
 }
 
 div.term table td {
   padding: 0 5px 0 0;
   vertical-align: top;
-} 
+}
 
 div.term span.cmd {
   word-break: break-all;
   color: #ddd;
+  white-space: pre-wrap;
 }
 
 div.term span.select {
@@ -80,20 +73,20 @@ div.term span.select {
 div.term .black { color: #000; }
 div.term .white { color: #fff; }
 div.term .yellow { color: #fcff71; }
-div.term .grey { color: #999; } 
+div.term .grey { color: #999; }
 div.term .red { color: #E08C8C; }
 div.term .cyan { color: #53d4cd; }
-div.term .blue { color: #5386d4; }   
+div.term .blue { color: #5386d4; }
 div.term .green { color: #92EB8A; }
 div.term .magenta { color: #d453c8; }
 
 div.term .bg-black { background-color: #000; }
 div.term .bg-white { background-color: #fff; }
 div.term .bg-yellow { background-color: #fcff71; }
-div.term .bg-grey { background-color: #999; } 
+div.term .bg-grey { background-color: #999; }
 div.term .bg-red { background-color: #E08C8C; }
 div.term .bg-cyan { background-color: #53d4cd; }
-div.term .bg-blue { background-color: #5386d4; }   
+div.term .bg-blue { background-color: #5386d4; }
 div.term .bg-green { background-color: #92EB8A; }
 div.term .bg-magenta { background-color: #d453c8; }
 
@@ -101,6 +94,9 @@ div.term .error { color: #E08C8C; }
 div.term .bold { font-weight: bold; }
 div.term .center { text-align: center; }
 div.term .right { text-align: right; }
+div.term .top { vertical-align: top !important; }
+div.term .middle { vertical-align: middle !important; }
+div.term .bottom { vertical-align: bottom !important; }
 
 div.term .key { color: #aaa; }
 div.term .value { color: #fff; }
@@ -122,7 +118,7 @@ div.term span.cursor {
 
 div.term:focus span.cursor {
   border: none;
-  display: inline;
+  margin: 1px;
   background-color: #fff;
   -webkit-animation: blink 1s step-end infinite;
   -moz-animation: blink 1s step-end infinite;
@@ -161,7 +157,14 @@ div.term:focus.run span.cursor {
   50% { background-color: transparent; }
 }
 
-@-o-keyframes blink" {
+@-o-keyframes blink {
   from, to { background-color: #fff; }
   50% { background-color: transparent; }
+}
+
+div.term textarea.clipboard {
+  background-color: red;
+  position: fixed;
+  top: -10px;
+  height: 1px;
 }
