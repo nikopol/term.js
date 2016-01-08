@@ -5,36 +5,51 @@
   <title>term.js</title>
   <link rel="stylesheet" href='term.css'>
   <style>
-    div#term1 {
+    /*@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:600);
+    div.term {
+      font: normal 14px "Source Code Pro";
+    }*/
+    div.term-container {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 50%;
+      width: calc(50% - 2px);
+      height: calc(50% - 2px);
+    }
+    div#term1 {
+      left: calc(50% - 2px);
     }
     div#term2 {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: calc(50% - 2px);
+    }
+    div#term3 {
+      top: calc(50% - 2px);
+      left: calc(50% - 2px);
     }
   </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="term.js"></script>
-  <script src="mods/dumb.js"></script>
-  <script src="mods/repl/javascript.js"></script>
-  <script>
-    $(function(){
-      var 
-        t1 = term({parent:'#term1', mod:'javascript', vars:{ hello:'<yellow>TERM 1' }}).open(),
-        t2 = term({parent:'#term2', mod:'dumb', vars:{ hello:'<yellow>TERM 2' }}).open()
-      ;
-    });
-  </script>
 </head>
 <body>
-  <div id="term1"></div>
-  <div id="term2"></div>
+  <div class="term-container" id="term0"></div>
+  <div class="term-container" id="term1"></div>
+  <div class="term-container" id="term2"></div>
+  <div class="term-container" id="term3"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="term.js"></script>
+  <script src="formats/json.js"></script>
+  <script src="formats/csv.js"></script>
+  <script src="mods/dumb.js"></script>
+  <script src="mods/shell.js"></script>
+  <script src="mods/repl/javascript.js"></script>
+  <!-- needeed for clojurescript mod -->
+  <script src="http://kanaka.github.io/cljs-bootstrap/web/repl-web.js"></script>
+  <script src="mods/repl/clojurescript.js"></script>
+  <script>
+    $(function(){
+      //open a terminal by mod
+      ['dumb','shell','javascript','clojurescript'].forEach(function(mod,n){
+        term({parent:'#term'+n, mod:mod, vars:{ hello:'<yellow>TERM '+n }, autofocus: true}).open();
+      });
+    });
+  </script>
 </body>
 </html>

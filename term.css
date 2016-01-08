@@ -33,6 +33,10 @@ div.term::-webkit-scrollbar-thumb {
   background-color: #888;
 }
 
+div.term div.output {
+  white-space: pre;
+}
+
 div.term:focus {
   outline: none;
 }

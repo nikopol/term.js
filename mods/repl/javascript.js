@@ -2,7 +2,7 @@
 REPL/JAVASCRIPT TERM MOD 
 term.js - niko
 
-just a javascript eval
+just a javascript read eval print loop
 */
 
 
@@ -10,6 +10,9 @@ just a javascript eval
 
   _.javascript = {
     version: '0.1',
+    init: function(){
+      this.format('json');
+    },
     exec: function(cmd,p){
       try {
         var r=eval(cmd);

@@ -26,9 +26,9 @@ term.js - niko
     read: function(csv){
       if( typeof(csv)!='string' ) return csv;
       var
-        SEP=term.vars('csv_separator') || ';',
-        HEADER=term.vars('csv_header') || false,
-        error=function(t){ term.echo(e,'error'); return out; },
+        SEP=this.vars('csv_separator') || ';',
+        HEADER=this.vars('csv_header') || false,
+        error=function(t){ this.echo(e,'error') },
         fields,
         out=[],
         row=[],
@@ -83,9 +83,9 @@ term.js - niko
 
     write: function(o){
       var
-        SEP=term.vars('csv_separator') || ';',
-        BOM=term.vars('csv_bom') || false,
-        HEADER=term.vars('csv_header') || false,
+        SEP=this.vars('csv_separator') || ';',
+        BOM=this.vars('csv_bom') || false,
+        HEADER=this.vars('csv_header') || false,
         out=BOM ? "\xfe\xff" : '',
         fields;
       if( !$.isArray(o) ) o=[o];
