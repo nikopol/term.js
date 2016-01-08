@@ -1,38 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="term.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="term.js"></script>
-  <script>
-    $(function(){
-      term.init({
-        cfg: {
-          parent: document.body
-        },
-        vars: {
-          hello: [
-            '<cyan>Term.js v$VERSION',
-            '<grey>try "hello" to start'
-          ],
-          prompt: '<green>$TIME</green> <grey>▶</grey> '
-        },
-        commands: {
-          hello: {
-            bin: function(){
-              var p=$.Deferred();
-              term.ask('what\'s your name','Joe',function(n){
-                if(n) p.resolve(['hello <yellow>'+n+'</yellow> !','try "help" if you\'re lost']);
-                else p.reject('rude');
-              });
-              return p;
-            }
-          },
-        }
-      }).open();
-    });
-  </script>
+  <title>term.js</title>
+  <link rel="stylesheet" href='term.css'>
+  <style>
+    /*@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:600);
+    div.term {
+      font: normal 14px "Source Code Pro";
+    }*/
+    div.term-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(50% - 2px);
+      height: calc(50% - 2px);
+    }
+    div#term1 {
+      left: calc(50% - 2px);
+    }
+    div#term2 {
+      top: calc(50% - 2px);
+    }
+    div#term3 {
+      top: calc(50% - 2px);
+      left: calc(50% - 2px);
+    }
+  </style>
 </head>
 <body>
+  <div class="term-container" id="term0"></div>
+  <div class="term-container" id="term1"></div>
+  <div class="term-container" id="term2"></div>
+  <div class="term-container" id="term3"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="term.js"></script>
+  <script src="formats/json.js"></script>
+  <script src="formats/csv.js"></script>
+  <script src="mods/dumb.js"></script>
+  <script src="mods/shell.js"></script>
+  <script src="mods/repl/javascript.js"></script>
+  <!-- needeed for clojurescript mod -->
+  <script src="http://kanaka.github.io/cljs-bootstrap/web/repl-web.js"></script>
+  <script src="mods/repl/clojurescript.js"></script>
+  <script>
+    $(function(){
+      //open a terminal by mod
+      ['dumb','shell','javascript','clojurescript'].forEach(function(mod,n){
+        term({parent:'#term'+n, mod:mod, vars:{ hello:'<yellow>TERM '+n }, autofocus: true}).open();
+      });
+    });
+  </script>
 </body>
 </html>
